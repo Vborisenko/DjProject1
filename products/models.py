@@ -2,3 +2,9 @@ from django.db import models
 
 
 # Create your models here.
+# Remember to make a migration, after changing smth here
+class Product(models.Model):
+    title          = models.TextField()
+    description    = models.TextField()
+    price          = models.TextField()
+    summary        = models.TextField(default='This is cool')
