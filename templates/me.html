@@ -1,42 +1,5 @@
-<html>
-    <head>
-	    <meta charset="UTF-8"/>
-	    <link href="style.css" rel="stylesheet" />
-	     <title>DFP</title>
-		<link rel="icon" href="images/logo.jpg">		
-	</head>		
-	<body> 	
-<h1>DjangoFirstProjectv</h1>
-<h2>
-</h2>
-<div class="contactus">  
-  <form id="contact" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
-    <h3>Registration</h3>   
-    <fieldset>
-      <input placeholder="Your login" type="text" name="userlogin" required autofocus>
-    </fieldset>
-	<fieldset>
-      <input placeholder="Your password" type="password" name="usserpassword" required autofocus>
-    </fieldset>
-    <fieldset> 
-      <input placeholder="Your name" type="text" name="fname" required autofocus>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your surname" type="text" name="sname" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" name="phone_number" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your email adress" type="email" name="email" required>
-    </fieldset>
-    <fieldset>
-      <input placeholder="Your home adress(for delivery)" type="text"  name="adress" required></input>
-    </fieldset>
-    <fieldset>
-      <button name="submit" type="submit" id="register-submit" data-submit="...Sending">Register</button>
-    </fieldset>
-  </form>
-</div> 
-    </body>
-</html>
+{% extends 'base.html'%}
+{%block content%}
+    <h2>My page</h2>
+    <p>This is template</p>
+{%endblock %}
