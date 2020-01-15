@@ -11,12 +11,14 @@ def home_view(request, *args, **kwargs):
 
 
 def about_view(request, *args, **kwargs):
-    return HttpResponse("<h1>Vitali Barysenka's web-site</h1>")
+    # return HttpResponse("<h1>Vitali Barysenka's web-site</h1>")
+    return render(request, "me.html", {})
 
 
 def contact_view(request, *args, **kwargs):
     print("user:", request.user)
-    return HttpResponse("<h1>Vitali Barysenka's Contact Page</h1>")
+    # return HttpResponse("<h1>Vitali Barysenka's Contact Page</h1>")
+    return render(request, "contact.html", {})
 
 
 def social_view(request, *args, **kwargs):
