@@ -45,39 +45,4 @@
   </form>
 </div> 
     </body>
-</html>	
-
-
-
-<?php
-$dbc = mysqli_connect('localhost', 'root','', 'deliveryservice')OR DIE('error');
-if(isset($_POST['submit']))
-{	
-	$userlogin = mysqli_real_escape_string($dbc, trim($_POST['userlogin']));
-	$userpassword = mysqli_real_escape_string($dbc, trim($_POST['userpassword']));
-	$fname = mysqli_real_escape_string($dbc, trim($_POST['fname']));
-	$sname = mysqli_real_escape_string($dbc, trim($_POST['sname']));
-	$phone_number = mysqli_real_escape_string($dbc, trim($_POST['phone_number']));
-	$email = mysqli_real_escape_string($dbc, trim($_POST['email']));
-	$adress = mysqli_real_escape_string($dbc, trim($_POST['adress']));
-	if(!empty($userlogin) && !empty($password)) 
-	{
-		$query = "SELECT * FROM `signup` WHERE userlogin = '$login'";
-		$data = mysqli_query($dbc, $query);	
-		if(mysql_num_rows($data)==0)
-		{
-			$query = "INSERT INTO signup (userlogin, userpassword,fname, sname, phone_number, email, adress ) 
-			VALUES($userlogin, $password,$fname, $sname, $phone_number, $email, $adress )";
-			mysqli_query($dbc, $query);			
-	$home_url = 'http://' . $_SERVER['HTTP_HOST'];
-	header('Location: ' . $home_url);
-			mysqli_query($dbc);
-			exit();
-		}
-		else
-		{
-			echo 'User was signed up!';
-		}			
-	}
-}
-?>
+</html>

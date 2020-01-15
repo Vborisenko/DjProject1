@@ -22,5 +22,5 @@ urlpatterns = [
     path('', home_view, name='home'),
     path('contact/my/', social_view),
     path('contact/', contact_view),
-    path('contact/my/empty/', about_view),
+    path('me/', about_view),
 ]
