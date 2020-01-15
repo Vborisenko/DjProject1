@@ -1,0 +1,83 @@
+<html>
+    <head>
+	    <meta charset="UTF-8"/>
+	    <link href="style.css" rel="stylesheet" />
+	     <title>DeliveryService</title>
+		<link rel="icon" href="images/logo.jpg">		
+	</head>		
+	<body> 	
+<<h1>Delivery Food Service</h1>
+<h2>
+<div class="top">
+	<a href="home.html">Home</a>
+	<a href="menu.html">Menu</a>
+	<a href="order.html">Offer</a>
+	<a href="signup.html">Signup/registration</a>
+</div>
+</h2>
+<div class="contactus">  
+  <form id="contact" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
+    <h3>Registration</h3>   
+    <fieldset>
+      <input placeholder="Your login" type="text" name="userlogin" required autofocus>
+    </fieldset>
+	<fieldset>
+      <input placeholder="Your password" type="password" name="usserpassword" required autofocus>
+    </fieldset>
+    <fieldset> 
+      <input placeholder="Your name" type="text" name="fname" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your surname" type="text" name="sname" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number (optional)" type="tel" name="phone_number" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your email adress" type="email" name="email" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your home adress(for delivery)" type="text"  name="adress" required></input>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="register-submit" data-submit="...Sending">Register</button>
+    </fieldset>
+  </form>
+</div> 
+    </body>
+</html>	
+
+
+
+<?php
+$dbc = mysqli_connect('localhost', 'root','', 'deliveryservice')OR DIE('error');
+if(isset($_POST['submit']))
+{	
+	$userlogin = mysqli_real_escape_string($dbc, trim($_POST['userlogin']));
+	$userpassword = mysqli_real_escape_string($dbc, trim($_POST['userpassword']));
+	$fname = mysqli_real_escape_string($dbc, trim($_POST['fname']));
+	$sname = mysqli_real_escape_string($dbc, trim($_POST['sname']));
+	$phone_number = mysqli_real_escape_string($dbc, trim($_POST['phone_number']));
+	$email = mysqli_real_escape_string($dbc, trim($_POST['email']));
+	$adress = mysqli_real_escape_string($dbc, trim($_POST['adress']));
+	if(!empty($userlogin) && !empty($password)) 
+	{
+		$query = "SELECT * FROM `signup` WHERE userlogin = '$login'";
+		$data = mysqli_query($dbc, $query);	
+		if(mysql_num_rows($data)==0)
+		{
+			$query = "INSERT INTO signup (userlogin, userpassword,fname, sname, phone_number, email, adress ) 
+			VALUES($userlogin, $password,$fname, $sname, $phone_number, $email, $adress )";
+			mysqli_query($dbc, $query);			
+	$home_url = 'http://' . $_SERVER['HTTP_HOST'];
+	header('Location: ' . $home_url);
+			mysqli_query($dbc);
+			exit();
+		}
+		else
+		{
+			echo 'User was signed up!';
+		}			
+	}
+}
+?>
