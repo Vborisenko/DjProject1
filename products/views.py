@@ -6,10 +6,17 @@ from .models import Product
 
 def product_detail_view(request):
     obj = Product.objects.get(id=1)
+    # context = {
+    #     'title': obj.title,
+    #     'description': obj.description,
+    #     'price': obj.price,
+    # }
     context = {
-        'title': obj.title,
-        'Description': obj.description,
-        'price': obj.price,
+        'object': obj
     }
-    return render(request, "product/details.html", {})
+    # if context['description'] is None:
+    #     print("Soon")
+    # else:
+    #     print("description:", context['description'])
+    return render(request, "product/details.html", context)
 
