@@ -6,7 +6,7 @@ from .models import Product
 
 def product_detail_view(request):
     try:
-        obj = Product.objects.get(id=2)
+        obj = Product.objects.get(id=1)
     except Product.DoesNotExist:
         obj = None
     # context = {
@@ -21,5 +21,5 @@ def product_detail_view(request):
     #     print("Soon")
     # else:
     #     print("description:", context['description'])
-    return render(request, "products/details.html", context)
+    return render(request, "products/product_details.html", context)
 
