@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 
 # Create your views here.
+
+
 def home_view(request, *args, **kwargs):
     print("user:", request.user)
     # return HttpResponse("<title>Homepage</title>"# string of HTML code
