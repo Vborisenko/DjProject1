@@ -12,10 +12,11 @@ def home_view(request, *args, **kwargs):
 def aboutme_view(request, *args, **kwargs):
     print("user:", request.user)
     my_context = {
-        'my_name' : 'Vitali',
-        "my_text": "This is about me",
-        "my_number": 777,
-        "my_list": ['Vitali', 'Ighor', 'Max', '400', '400', '500']
+        'my_name': '<h1>vitali barysenka</h1>',
+        'title': 'django web-site',
+        "my_text": "This page is about me",
+        "my_number": 375291865630,
+        "my_skills": ['Python/Django', 'HTML/CSS', 'Git', 'Linux(bush)', 'OOP', 'SQL']
     }
 
     return render(request, "me.html", my_context)

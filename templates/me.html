@@ -1,21 +1,21 @@
 {% extends 'base.html'%}
 {%block brand%}
-<h1>{{my_name}}</h1>
+Author:
+{{my_name|title|safe}}  <!--Built-in filter reference-->
 {%endblock%}
 {%block content%}
-    <h2>My page</h2>
-    <p>This is template</p>
+<h2>My page is {{title|upper}}</h2>
 <p>
     {{my_text}}<br>
-    {{my_list}} <!--    Context variables-->
+    My phone number:                +{{my_number}} <!--    Context variables-->
 </p>
 <ul>
-{% for item in my_list %}
-    {% if item.isdigit %}   <!--Buil-in filter reference-->
-    <li>{{forloop.counter}} - {{item|add:22}}</li>
-    {%else%}
+{% for item in my_skills %}
     <li>{{forloop.counter}} - {{item}}</li>
-    {%endif%}
 {% endfor %}
+<!--    {% if item.isdigit %}    Build-in filter reference-->
+<!--    {%else%}-->
+<!--    <li>{{forloop.counter}} - {{item}}</li>-->
+<!--    {%endif%}-->
 </ul>
 {%endblock %}
