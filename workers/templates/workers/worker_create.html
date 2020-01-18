@@ -1,8 +1,8 @@
-{%extends base.html%}
+{%extends 'base.html'%}
 {%block content%}
-<form method="POST">
+<form action= "." method="POST">
     {%csrf_token%}
     {{form.as_p}}
-    <input type="button" value="save">
+    <input type="submit" value="save">
 </form>
 {%endblock%}

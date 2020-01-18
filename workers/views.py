@@ -12,6 +12,10 @@ def worker_create_view(request):
     context = {
         'form': form
     }
+    print(type(context))
+    print(context['form'].Meta['cost_in_hour'])
+    #print(context['form']['cost_in_hour'])
+    #print(context['form']['work_time'])
     return render(request, "workers/worker_create.html", context)
 
 

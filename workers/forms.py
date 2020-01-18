@@ -11,5 +11,4 @@ class WorkerForm(forms.ModelForm):
             'position',
             'work_time',
             'cost_in_hour',
-            'salary',
         }
