@@ -10,7 +10,6 @@ class Worker(models.Model):
         ('pm', 'PM'),
         ('hr', 'HR'),
     )
-
     f_name = models.CharField(max_length=50)
     s_name = models.CharField(max_length=50)
     position = models.CharField(max_length=10, choices=POSITION_SHOICE, default='developer')
