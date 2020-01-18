@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     # third part
     # own
     'pages',
-    'products'
+    'products',
+    'workers'
 ]
 
 MIDDLEWARE = [
