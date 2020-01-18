@@ -12,7 +12,7 @@ def home_view(request, *args, **kwargs):
 
 
 def aboutme_view(request, *args, **kwargs):
-    print("user:", request.user)
+    # print("user:", request.user)
     my_context = {
         'my_name': '<h1>vitali barysenka</h1>',
         'title': 'django web-site',
@@ -20,7 +20,6 @@ def aboutme_view(request, *args, **kwargs):
         "my_number": 375291865630,
         "my_skills": ['Python/Django', 'HTML/CSS', 'Git', 'Linux(bush)', 'OOP', 'SQL']
     }
-
     return render(request, "me.html", my_context)
 
 

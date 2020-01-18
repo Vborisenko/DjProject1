@@ -3,7 +3,18 @@ from .models import Product
 from .forms import ProductForm
 # Create your views here.
 
+# Row html form without form in Django
+# def product_create_view(request):
+#     if request.method == "POST":
+#         my_new_title = request.POST.get('title')
+#         my_new_price = request.POST.get('price')
+#         print('title:', my_new_title)
+#         print('price:', my_new_price)
+#         Product.objects.create(title = my_new_title, price = my_new_price)
+#     return render(request, "products/product_create.html", {})
 
+
+# Django form for templates
 def product_create_view(request):
     form = ProductForm(request.POST or None)
     if form.is_valid():
@@ -29,4 +40,3 @@ def product_detail_view(request):
         'object': obj
     }
     return render(request, "products/product_details.html", context)
-
