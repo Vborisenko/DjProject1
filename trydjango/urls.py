@@ -28,5 +28,5 @@ urlpatterns = [
     path('me/', pages.views.aboutme_view),
     path('create_worker/', workers.views.worker_create_view),
     path('create_product/', products.views.product_create_view),
-
+    path('render_product/', products.views.render_data),
 ]

@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+{%block content%}
+<form method = "POST">    {%csrf_token%}
+    <input type="text" name="id_product" placeholder="id">
+    {{form.as_p}}
+    <input type='submit' value='Изменить'/>
+</form>
+{% endblock %}

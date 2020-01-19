@@ -42,6 +42,24 @@ def product_create_view(request):
     return render(request, "products/product_create.html", context)
 
 
+def render_data(request):
+    form = ProductForm()
+    if request.method == "POST":
+        id_product = request.POST.get('id_product')
+        try:
+            obj = Product.objects.get(id=id_product)
+            print("изъяли из бд:", obj.title)
+        except Product.DoesNotExist:
+            obj = None
+        form = ProductForm(request.POST or None, instance=obj)
+        if form.is_valid():
+            form.save()
+    context = {
+        'form': form
+    }
+    return render(request, "products/render.html", context)
+
+
 def product_detail_view(request):
     try:
         obj = Product.objects.get(id=1)
