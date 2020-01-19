@@ -60,9 +60,9 @@ def render_data(request):
     return render(request, "products/render.html", context)
 
 
-def product_detail_view(request):
+def product_detail_view(request, id_product):
     try:
-        obj = Product.objects.get(id=1)
+        obj = Product.objects.get(id=id_product)
     except Product.DoesNotExist:
         obj = None
     # context = {

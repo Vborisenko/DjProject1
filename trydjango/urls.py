@@ -23,10 +23,10 @@ import workers.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', pages.views.home_view, name='home'),
-    path('products/', products.views.product_detail_view),
+    path('products/<int:id_product>/', products.views.product_detail_view),   # Dynamic URL Routing
     path('contact/', pages.views.contact_view),
     path('me/', pages.views.aboutme_view),
     path('create_worker/', workers.views.worker_create_view),
     path('create_product/', products.views.product_create_view),
-    path('render_product/', products.views.render_data),
+    path('render_product/', products.views.render_data, name='product'),
 ]
