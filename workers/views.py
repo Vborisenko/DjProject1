@@ -24,7 +24,7 @@ def worker_create_view(request):
 
     # continue to response
 
-# form:
+# form include:
 
 # <tr><th><label for="id_work_time">Work time:</label></th><td><input type="number" name="work_time" step="1" required id="id_work_time"></td></tr>
 # <tr><th><label for="id_f_name">F name:</label></th><td><input type="text" name="f_name" maxlength="50" required id="id_f_name"></td></tr>
