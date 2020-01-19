@@ -5,17 +5,17 @@ from .forms import ProductForm, RawProductForm
 
 
 #   Pure Django form
-def product_create_view(request):
-    raw_form = RawProductForm()
-    if request.method == "POST":
-        raw_form = RawProductForm(request.POST)
-        if raw_form.is_valid():
-            print(raw_form.cleaned_data)
-            Product.objects.create(**raw_form.cleaned_data)
-    context = {
-        "form": raw_form
-    }
-    return render(request, "products/product_create.html", context)
+# def product_create_view(request):
+#     raw_form = RawProductForm()
+#     if request.method == "POST":
+#         raw_form = RawProductForm(request.POST)
+#         if raw_form.is_valid():
+#             print(raw_form.cleaned_data)
+#             Product.objects.create(**raw_form.cleaned_data)
+#     context = {
+#         "form": raw_form
+#     }
+#     return render(request, "products/product_create.html", context)
 
 
 # Row html form without form in Django
@@ -31,15 +31,15 @@ def product_create_view(request):
 
 
 # Django form for templates
-# def product_create_view(request):
-#     form = ProductForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#         form = ProductForm()
-#     context = {
-#         'form': form
-#     }
-#     return render(request, "products/product_create.html", context)
+def product_create_view(request):
+    form = ProductForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ProductForm()
+    context = {
+        'form': form
+    }
+    return render(request, "products/product_create.html", context)
 
 
 def product_detail_view(request):
