@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product
 from .forms import ProductForm, RawProductForm
 # Create your views here.
@@ -64,8 +64,6 @@ def render_data(request):
 def product_detail_view(request, id_product):
 
     obj = get_object_or_404(Product, id=id_product)
-
-    #
     # try:
     #     obj = Product.objects.get(id=id_product)
     # except Product.DoesNotExist:
@@ -79,3 +77,24 @@ def product_detail_view(request, id_product):
         'object': obj
     }
     return render(request, "products/product_details.html", context)
+
+
+def delete_product_view(request, id_p):
+    obj = get_object_or_404(Product, id = id_p)
+    # POST request
+    if request.method == "POST":
+        # confirming delete
+        obj.delete()
+        return redirect('../../')
+    context = {
+        "object": obj
+    }
+    return render(request, "products/product_delete.html", context)
+
+
+def product_list_view(request):
+    queryset = Product.objects.all()
+    context = {
+        "object_list": queryset
+    }
+    return render(request, "products/product_list.html", context)
