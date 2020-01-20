@@ -61,9 +61,9 @@ def render_data(request):
     return render(request, "products/render.html", context)
 
 
-def product_detail_view(request, id_product):
+def product_detail_view(request, id):
 
-    obj = get_object_or_404(Product, id=id_product)
+    obj = get_object_or_404(Product, id=id)
     # try:
     #     obj = Product.objects.get(id=id_product)
     # except Product.DoesNotExist:
@@ -79,8 +79,8 @@ def product_detail_view(request, id_product):
     return render(request, "products/product_details.html", context)
 
 
-def delete_product_view(request, id_p):
-    obj = get_object_or_404(Product, id = id_p)
+def delete_product_view(request, id):
+    obj = get_object_or_404(Product, id=id)
     # POST request
     if request.method == "POST":
         # confirming delete

@@ -30,8 +30,8 @@ urlpatterns = [
 
     path('product/create/', products.views.product_create_view),
     path('product/render', products.views.render_data),
-    path('product/delete/<int:id_p>/', products.views.delete_product_view),
-    path('product/<int:id_product>/', products.views.product_detail_view),  # Dynamic URL Routing
+    path('product/delete/<int:id>/', products.views.delete_product_view),
+    path('product/<int:id>/', products.views.product_detail_view, name="product-details"),  # Dynamic URL Routing
     path('products/', products.views.product_list_view),  # Dynamic URL Routing
 
 ]
