@@ -28,9 +28,9 @@ urlpatterns = [
     path('me/', pages.views.aboutme_view),
     path('create_worker/', workers.views.worker_create_view),
 
-    path('create_product/', products.views.product_create_view),
-    path('render_product/', products.views.render_data),
-    path('delete_product/<int:id_p>/', products.views.delete_product_view),
+    path('product/create/', products.views.product_create_view),
+    path('product/render', products.views.render_data),
+    path('product/delete/<int:id_p>/', products.views.delete_product_view),
     path('product/<int:id_product>/', products.views.product_detail_view),  # Dynamic URL Routing
     path('products/', products.views.product_list_view),  # Dynamic URL Routing
 
