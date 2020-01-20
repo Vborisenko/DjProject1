@@ -2,6 +2,6 @@
 {%block content%}
 <form action="." method="POST">{%csrf_token%}
     <h1>Are you sure, that you want to delete product '{{object.title}}'?</h1>
-    <p><input type="submit" value="Yes"/> <a href='../'>Cancel</a></p>
+    <p><input type="submit" value="Yes"/> <a href='../../'>Cancel</a></p>
 </form>
 {% endblock %}

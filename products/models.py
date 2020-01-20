@@ -15,4 +15,4 @@ class Product(models.Model):
 
     def get_detail_url(self):
         # return f"../product/{self.id}/"        # hardcoding!
-        return reverse("product-details", kwargs={"id": self.id})
+        return reverse("products: product-details", kwargs={"id": self.id})
