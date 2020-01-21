@@ -20,6 +20,7 @@ import workers.views
 
 
 urlpatterns = [
+    path('blog/', include('blog.urls')),
     path('products/', include('products.urls')),
     path('admin/', admin.site.urls),
     path('', pages.views.home_view, name='home'),
