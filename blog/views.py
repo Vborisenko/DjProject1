@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import (CreateView,
                                   DetailView,
-                                  ListView,)
+                                  ListView,
+                                  UpdateView,)
+from .forms import ArticleModelForms
 from .models import Article
 # Create your views here.
 
@@ -18,3 +20,27 @@ class ArticleDetailView(DetailView):
     def get_object(self):
         id_ = self.kwargs.get("id")
         return get_object_or_404(Article, id=id_)
+
+
+class ArticleCreateView(CreateView):
+    form_class            = ArticleModelForms
+    template_name   = 'articles/article_create.html'
+    queryset        = Article.objects.all()
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
+
+class ArticleUpdateView(UpdateView):
+    form_class            = ArticleModelForms
+    template_name   = 'articles/article_create.html'
+    queryset        = Article.objects.all()
+
+    def get_object(self):
+        id_ = self.kwargs.get("id")
+        return get_object_or_404(Article, id=id_)
+
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
