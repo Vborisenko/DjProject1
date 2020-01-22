@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (ArticleView,
                     ArticleDetailView,
                     ArticleCreateView,
-                    ArticleUpdateView,)
+                    ArticleUpdateView,
+                    ArticleDeleteView,)
 
 app_name = "articles"               # namespace
 urlpatterns = [
@@ -10,4 +11,5 @@ urlpatterns = [
     path('<int:id>/', ArticleDetailView.as_view(), name='article-detail'),   # <int:pk> is default. If you want to change
     path('create/', ArticleCreateView.as_view(), name='article-create'),   # you should to override method in ViewsClass
     path('<int:id>/update/', ArticleUpdateView.as_view(), name='article-update'),
+    path('<int:id>/delete/', ArticleDeleteView.as_view(), name='article-delete'),
 ]
