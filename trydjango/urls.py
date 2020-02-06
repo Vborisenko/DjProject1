@@ -18,7 +18,7 @@ from django.urls import path, include
 import pages.views
 import workers.views
 
-
+6  
 urlpatterns = [
     path('blog/', include('blog.urls')),
     path('products/', include('products.urls')),
